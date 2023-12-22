@@ -1,11 +1,25 @@
-### Sample Input 1
-![square.jpg](https://github.com/pandragama/image-to-ascii/blob/main/sample-inputs/square.jpg?raw=true)
+# Contoh Hasil
 
-### Sample Output 1.1
-![square-char400-defaultSettings.png](https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-defaultSettings.png?raw=true)
+---
 
-### Sample Output 1.2
-![square-char400-sharpness20.png](https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-sharpness20.png?raw=true)
+### Input
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-inputs/square.jpg" width="50%" alt="sample-inputs/square.jpg">
+<br>
 
-### Sample Output 1.3
-![square-char400-contrast3.png](https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-contrast3.png?raw=true)
+### Output (1)
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-defaultSettings.png" width="50%" alt="sample-outputs/square-char400-defaultSettings.png">
+<p>Character/Line: 400</p>
+<p>Settings: Default</p>
+<br>
+
+### Output (2)
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-sharpness20.png" width="50%" alt="sample-outputs/square-char400-sharpness20.png">
+<p>Character/Line: 400</p>
+<p>Settings: Sharpness(20)</p>
+<br>
+
+### Output (3)
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-contrast3.png" width="50%" alt="sample-outputs/square-char400-contrast3.png">
+<p>Character/Line: 400</p>
+<p>Settings: Contrast(3)</p>
+
