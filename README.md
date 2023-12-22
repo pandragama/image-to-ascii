@@ -24,6 +24,6 @@
 
 ---
 
-<p>Output gambar lonjong karena font monoscpace yang digunakan (Courier) memiliki ukuran tinggi yang lebih besar dari ukuran lebarnya.</p>
+<p>Output gambar menjadi LONJONG karena font monoscpace yang digunakan (Courier) memiliki ukuran TINGGI yang lebih besar dari ukuran LEBARnya.</p>
 <p>Infokan solusinya teman-teman. Font monospace apa yang ukuran tinggi dan lebarnya sama???</p>
 
