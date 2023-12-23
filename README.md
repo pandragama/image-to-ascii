@@ -6,24 +6,129 @@
 
 ### Output (1)
 <img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-defaultSettings.png" width="50%" alt="sample-outputs/square-char400-defaultSettings.png">
-<p>Characters/Line: 400</p>
-<p>Settings: Default</p>
+<table border="1">
+  <tr>
+    <th colspan="2">Keterangan</th>
+  </tr>
+  <tr>
+    <td>
+        <p>Karakter/Baris</p>
+    </td>
+    <td>
+        <p>400</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>Pengaturan</p>
+    </td>
+    <td>
+        <p>Default</p>
+    </td>
+  </tr>
+</table>
 <br>
 
 ### Output (2)
-<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-sharpness20.png" width="50%" alt="sample-outputs/square-char400-sharpness20.png">
-<p>Characters/Line: 400</p>
-<p>Settings: Sharpness(20)</p>
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-contrast3.png" width="50%" alt="sample-outputs/square-char400-contrast3.png">
+<table border="1">
+  <tr>
+    <th colspan="2">Keterangan</th>
+  </tr>
+  <tr>
+    <td>
+        <p>Karakter/Baris</p>
+    </td>
+    <td>
+        <p>400</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>Pengaturan</p>
+    </td>
+    <td>
+        <p>Kontras(3)</p>
+    </td>
+  </tr>
+</table>
 <br>
 
 ### Output (3)
-<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-contrast3.png" width="50%" alt="sample-outputs/square-char400-contrast3.png">
-<p>Characters/Line: 400</p>
-<p>Settings: Contrast(3)</p>
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-sharpness20.png" width="50%" alt="sample-outputs/square-char400-sharpness20.png">
+<table border="1">
+  <tr>
+    <th colspan="2">Keterangan</th>
+  </tr>
+  <tr>
+    <td>
+        <p>Karakter/Baris</p>
+    </td>
+    <td>
+        <p>400</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>Pengaturan</p>
+    </td>
+    <td>
+        <p>Ketajaman(20)</p>
+    </td>
+  </tr>
+</table>
 <br>
 
----
+### Output (4)
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-saturation18.png" width="50%" alt="sample-outputs/square-char400-saturation18.png">
+<table border="1">
+  <tr>
+    <th colspan="2">Keterangan</th>
+  </tr>
+  <tr>
+    <td>
+        <p>Karakter/Baris</p>
+    </td>
+    <td>
+        <p>400</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>Pengaturan</p>
+    </td>
+    <td>
+        <p>Saturasi(18)</p>
+    </td>
+  </tr>
+</table>
+<br>
 
-<p>Output gambar menjadi LONJONG karena font monoscpace yang digunakan (Courier) memiliki ukuran TINGGI yang lebih besar dari ukuran LEBARnya.</p>
-<p>Infokan solusinya teman-teman. Font monospace apa yang ukuran tinggi dan lebarnya sama???</p>
+### Output (5)
+<img src="https://github.com/pandragama/image-to-ascii/blob/main/sample-outputs/square-char400-saturation8-contrast3-sharpness12.png" width="50%" alt="sample-outputs/square-char400-saturation8-contrast3-sharpness12.png">
+<table border="1">
+  <tr>
+    <th colspan="2">Keterangan</th>
+  </tr>
+  <tr>
+    <td>
+        <p>Karakter/Baris</p>
+    </td>
+    <td>
+        <p>400</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>Pengaturan</p>
+    </td>
+    <td>
+        <li>Saturasi(8)</li>
+        <li>Kontras(3)</li>
+        <li>Ketajaman(12)</li>
+    </td>
+  </tr>
+</table>
+<br>
+
 
