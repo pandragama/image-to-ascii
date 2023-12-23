@@ -11,12 +11,14 @@ class ASCIIConverter:
 
     # Fungsi untuk inisialisasi awal (constructor) --------------------------------------------------------
     def __init__(self, root):
+        # Membuat self.root sebagai pointer ke window tkinter
         self.root = root
+        # Mengatur judul aplikasi dan icon
         self.root.title("Image to ASCII Art Converter")
         self.root.iconbitmap("assets\\ascii.ico")
 
         # Full-windowed mode
-        self.root.state("zoomed")
+        self.root.state("zoomed")        
 
         # Variable utuk gambar asli hingga ascii
         self.image_path = ""
@@ -47,7 +49,7 @@ class ASCIIConverter:
 
     # Fungsi untuk membuat widget yang diperlukan ---------------------------------------------------------
     def create_widgets(self):
-        # Frame untuk canvas preview gambar
+        # Frame utama untuk menampung semua widget
         main_frame = tk.Frame(self.root)
         main_frame.pack(pady=10)
     
@@ -55,18 +57,33 @@ class ASCIIConverter:
         result_frame = tk.Frame(main_frame)
         result_frame.grid(row=0, column=0, padx=15)
 
-        # Canvas untuk hasil konversi (ditampikan dalam textbox)
-        self.textbox = tk.Text(result_frame, font=("Courier", 6), width=200, height=92)
-        self.textbox.grid(row=0, column=0)
-        self.textbox.config(wrap="none", state="disabled")
-        self.textbox.tag_configure("center", justify="center")
-        self.textbox.tag_add("center", "1.0", "end")
+        # Label untuk menampilkan judul textbox
+        textbox_label = tk.Label(result_frame, text="ASCII Result View", font=20)
+        textbox_label.grid(row=0, column=0, pady=2, sticky="w")
 
-        # Label untuk menampilkan keretangan ukuran hasil ascii
-        self.ascii_detail = tk.Label(result_frame, text="Width(Columns): -, Height(Rows): -")
-        self.ascii_detail.grid(row=1, column=0, pady=2)
+        # Label untuk menampilkan keterangan ukuran hasil ascii
+        self.ascii_detail = tk.Label(result_frame, text="Width(-), Height(-)")
+        self.ascii_detail.grid(row=0, column=0, pady=2, sticky="e")
 
-        # Frame untuk slider pengaturan
+        # Membuat scrollbar horizontal dan vertikal untuk textbox
+        textbox_h_scroll = tk.Scrollbar(result_frame, orient = 'horizontal')
+        textbox_v_scroll = tk.Scrollbar(result_frame)
+
+        # # Canvas untuk hasil konversi (ditampikan dalam textbox)
+        # xscrollcommand dan yscrollcommand akan menempelkan scrollbar ke textbox
+        self.textbox = tk.Text(result_frame, font=("Courier", 6), width=200, height=90, xscrollcommand = textbox_h_scroll.set, yscrollcommand = textbox_v_scroll.set)
+        self.textbox.grid(row=1, column=0)
+        self.textbox.config(wrap="none", state="disabled", spacing1=0, spacing3=0)
+
+        # Memposisikan tempat scroll di samping kanan (v) dan di bawah (h) textbox
+        textbox_h_scroll.grid(row=2, column=0, sticky="ew")
+        textbox_v_scroll.grid(row=1, column=1, sticky="ns")
+
+        # Konfigurasi agar isi yang ditampilkan dalam textbox bisa digeser
+        textbox_h_scroll.config(command=self.textbox.xview)
+        textbox_v_scroll.config(command=self.textbox.yview)
+
+        # Frame untuk preview gambar asli, tombol opsi, dan slider pengaturan
         settings_frame = tk.Frame(main_frame)
         settings_frame.grid(row=0, column=1, padx=10)
 
@@ -75,27 +92,27 @@ class ASCIIConverter:
         self.canvas_image.grid(row=0, column=0, pady=10, columnspan=2)
 
         # Tombol untuk memuat gambar
-        load_button = tk.Button(settings_frame, text="Load Image", command=self.load_image, width=25)
+        load_button = tk.Button(settings_frame, text="Load Image", command=self.load_image, width=25, background="white")
         load_button.grid(row=1, column=0, padx=10 ,pady=10)
 
         # Tombol untuk mengembalikan ke pengaturan awal
-        load_button = tk.Button(settings_frame, text="Reset Settings", command=self.reset_settings, width=25)
+        load_button = tk.Button(settings_frame, text="Reset Settings", command=self.reset_settings, width=25, background="white")
         load_button.grid(row=1, column=1, padx=10 ,pady=10)
 
-        # Membuat slider pengaturan
+        # # Membuat slider pengaturan
         # create_slider(parent_frame, label, variable, resolution, from, to, row, column, collumn_span, len)
         self.create_slider(settings_frame, "Character Count", self.char_count_var, 1, 20, 400, 2, 0, 2, 382)
-        self.create_slider(settings_frame, "Brightness", self.brightness_var, 1, 1, 300, 3, 0, 1, 177)
+        self.create_slider(settings_frame, "Saturation", self.saturation_var, 1, -20, 20, 3, 0, 1, 177)
         self.create_slider(settings_frame, "Contrast", self.contrast_var, 1, -20, 20, 3, 1, 1, 177)
-        self.create_slider(settings_frame, "Saturation", self.saturation_var, 1, -20, 20, 4, 0, 1, 177)
-        self.create_slider(settings_frame, "Sharpness", self.sharpness_var, 1, -20, 20, 4, 1, 1, 177)
+        self.create_slider(settings_frame, "Sharpness", self.sharpness_var, 1, -20, 20, 4, 0, 1, 177)
+        self.create_slider(settings_frame, "Brightness", self.brightness_var, 1, 1, 300, 4, 1, 1, 177)
 
         # Tombol untuk menyimpan hasil
-        save_button = tk.Button(settings_frame, text="Save ASCII Image", command=self.save_ascii_art_image, width=25)
+        save_button = tk.Button(settings_frame, text="Save ASCII Image", command=self.save_ascii_art_image, width=25, background="white")
         save_button.grid(row=5, column=0, padx=10, pady=15)
 
         # Tombol untuk menyimpan hasil
-        save_button = tk.Button(settings_frame, text="Save ASCII Text", command=self.save_ascii_art_text, width=25)
+        save_button = tk.Button(settings_frame, text="Save ASCII Text", command=self.save_ascii_art_text, width=25, background="white")
         save_button.grid(row=5, column=1, padx=10, pady=15)
 
 
@@ -147,7 +164,7 @@ class ASCIIConverter:
         resized_image = image.resize((new_width, new_height))
 
         # Memperbarui informasi detail
-        self.ascii_detail.config(text="Width(Columns): " + str(new_width) + ", Height(Rows): " + str(new_height))
+        self.ascii_detail.config(text="Width(" + str(new_width) + " Columns), Height(" + str(new_height) + " Rows)")
 
         # Memperbarui ukuran ascii image (untuk simpan hasil ascii menjadi gambar)
         self.ascii_image_height = new_height
@@ -159,6 +176,7 @@ class ASCIIConverter:
 
     # Fungsi untuk mengubah gambar menjadi grayscale ------------------------------------------------------
     def grayscale_image(self, image):
+        # Mendapatkan versi gambar abu-abu (L) dari gambar asli (RGB)
         grayscale_image = image.convert("L")
         return grayscale_image
 
@@ -186,7 +204,7 @@ class ASCIIConverter:
     def update_textbox(self, ascii_image, width):
         # Mengatur textbox ke kondisi normal untuk diisi hasil ascii
         self.textbox.config(state="normal")
-        # Membersihkan isi textbox dari titik awal hingga paling akhir
+        # Membersihkan isi textbox dari titik awal (baris 1, kolom 0) hingga paling akhir
         self.textbox.delete("1.0", tk.END)
 
         # Melakukan perulangan untuk dari 0 sampai sepanjang isi array ascii_image(jumlah pixel), dengan peningkatan sebanyak width(char_count
@@ -205,18 +223,18 @@ class ASCIIConverter:
         # Jika terdapat data gambar
         if self.image is not None:
             # Mendapatkan nilai pengaturan
-            char_count = int(self.char_count_var.get())
-            brightness = int(self.brightness_var.get())
-            contrast = int(self.contrast_var.get())
-            saturation = int(self.saturation_var.get())
-            sharpness = int(self.sharpness_var.get())
+            char_count = self.char_count_var.get()
+            brightness = self.brightness_var.get()
+            contrast = self.contrast_var.get()
+            saturation = self.saturation_var.get()
+            sharpness = self.sharpness_var.get()
 
             # Memproses kecerahan, kontras, warna(saturasi), dan ketajaman gambar sesuai nilai pengaturan
             img = self.image
-            img = ImageEnhance.Brightness(img).enhance(brightness)
-            img = ImageEnhance.Contrast(img).enhance(contrast)
             img = ImageEnhance.Color(img).enhance(saturation)
+            img = ImageEnhance.Contrast(img).enhance(contrast)
             img = ImageEnhance.Sharpness(img).enhance(sharpness)
+            img = ImageEnhance.Brightness(img).enhance(brightness)
 
             # Menampilkan hasil pengaturan ke preview gambar asli
             self.display_image(self.canvas_image, img)
@@ -283,14 +301,14 @@ class ASCIIConverter:
 
                 # Menentikan ukuran gambar menyesuaikan lebar dan tinggi text ascii
                 final_width = self.ascii_image_width * 10 - int(self.ascii_image_width * 4)
-                final_height = self.ascii_image_height * 10 - int(self.ascii_image_height * 2)
+                final_height = self.ascii_image_height * 10 - int(self.ascii_image_height * 3.995)
                 
                 # Membuat data gambar dengan lebar dan tinggi yang telah disesuaikan
                 img = Image.new("RGBA",(final_width, final_height), "white")
 
                 # Menggambarkan text ascii pada gambar
                 draw = ImageDraw.Draw(img)
-                draw.text((0, 0), ascii_text, fill="black", font=font, spacing=1)
+                draw.text((0, 0), ascii_text, fill="black", font=font, spacing=-1)
 
                 # Menyimpan gambar sesuai path
                 img.save(save_path)
